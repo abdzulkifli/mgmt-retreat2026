@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f3d5e" />
+  <title>LPPSA Management Retreat 2026</title>
+  <style>
+    :root{
+      --navy:#0f3d5e;
+      --navy-2:#0a2a42;
+      --teal:#1f8a8a;
+      --gold:#d8a93b;
+      --cream:#f7f5ef;
+      --white:#ffffff;
+      --ink:#17212b;
+      --muted:#667785;
+      --line:#dce5ea;
+      --soft:#edf4f6;
+      --success:#207a5a;
+      --shadow:0 14px 40px rgba(14,42,62,.10);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,#eef5f7 0,#f8fafb 380px,#fff 100%);
+      line-height:1.6;
+    }
+
+    button,a{font:inherit}
+    a{color:inherit}
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 20px 110px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(216,169,59,.28),transparent 28%),
+        radial-gradient(circle at 10% 85%,rgba(31,138,138,.32),transparent 30%),
+        linear-gradient(135deg,var(--navy-2),var(--navy));
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -12% -145px -12%;
+      height:230px;
+      background:#f8fafb;
+      border-radius:50% 50% 0 0 / 35% 35% 0 0;
+    }
+    .hero-inner{position:relative;z-index:1;max-width:1160px;margin:auto}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+    }
+    .eyebrow span{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(216,169,59,.15)}
+    h1{font-size:clamp(2.35rem,7vw,5.6rem);line-height:.98;margin:24px 0 18px;max-width:900px;letter-spacing:-.055em}
+    .hero p{max-width:760px;font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.83);margin:0}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .hero-meta div{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);font-weight:700;font-size:.93rem}
+
+    main{max-width:1160px;margin:-40px auto 0;padding:0 20px 80px;position:relative;z-index:2}
+
+    .objective{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:18px;
+      align-items:center;
+      background:#fff;
+      padding:26px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(15,61,94,.08);
+    }
+    .objective-icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#f2ca64);font-size:1.6rem}
+    .objective small{display:block;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);font-weight:900;margin-bottom:4px}
+    .objective strong{font-size:clamp(1.1rem,2.6vw,1.5rem);line-height:1.35}
+
+    .section{margin-top:40px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}
+    .section-head h2{margin:0;font-size:clamp(1.65rem,4vw,2.4rem);letter-spacing:-.035em}
+    .section-head p{margin:4px 0 0;color:var(--muted)}
+
+    .tabs-shell{
+      position:sticky;
+      top:0;
+      z-index:20;
+      margin:26px 0 20px;
+      padding:8px;
+      border-radius:18px;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border:1px solid var(--line);
+      box-shadow:0 10px 28px rgba(15,61,94,.08);
+    }
+    .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .tab-btn{
+      border:0;
+      border-radius:13px;
+      padding:13px 14px;
+      cursor:pointer;
+      background:transparent;
+      color:var(--muted);
+      font-weight:850;
+      transition:.22s ease;
+    }
+    .tab-btn small{display:block;font-weight:650;opacity:.8;margin-top:2px}
+    .tab-btn.active{background:var(--navy);color:#fff;box-shadow:0 8px 18px rgba(15,61,94,.24)}
+
+    .day-panel{display:none;animation:fade .28s ease}
+    .day-panel.active{display:block}
+    @keyframes fade{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    .day-banner{
+      display:flex;justify-content:space-between;align-items:center;gap:16px;
+      padding:24px;border-radius:var(--radius);margin-bottom:16px;
+      background:linear-gradient(135deg,#fff,#edf5f6);border:1px solid var(--line);
+    }
+    .day-banner .day-no{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.13em;color:var(--teal)}
+    .day-banner h3{margin:4px 0 0;font-size:clamp(1.35rem,3vw,2rem);line-height:1.15}
+    .date-badge{flex:0 0 auto;text-align:center;background:var(--navy);color:#fff;padding:13px 17px;border-radius:16px;font-weight:850;line-height:1.2}
+    .date-badge span{display:block;font-size:.76rem;font-weight:650;opacity:.75;margin-top:3px}
+
+    .agenda-list{display:grid;gap:12px}
+    .agenda-card{
+      display:grid;
+      grid-template-columns:120px minmax(0,1fr);
+      gap:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 5px 18px rgba(15,61,94,.045);
+      transition:.2s ease;
+    }
+    .agenda-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(15,61,94,.09)}
+    .time{font-weight:900;color:var(--navy);font-size:.93rem}
+    .agenda-content h4{margin:0 0 8px;font-size:1.07rem;line-height:1.3}
+    .agenda-content p{margin:0;color:var(--muted);font-size:.94rem}
+    .output{margin-top:12px;padding:10px 12px;border-left:4px solid var(--teal);background:var(--soft);border-radius:10px;font-size:.9rem;color:#31515f}
+    .output strong{color:var(--success)}
+    .break{background:#fbfaf6}
+    .break .output{display:none}
+
+    .deliverables{margin-top:18px;padding:22px;border-radius:20px;background:linear-gradient(135deg,var(--navy),#155b78);color:#fff}
+    .deliverables h4{margin:0 0 13px;font-size:1.16rem}
+    .deliverables-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .deliverable-item{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:11px 12px;font-size:.92rem}
+    .tick{color:#ffd774;font-weight:900}
+
+    .summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .summary-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 6px 20px rgba(15,61,94,.05)}
+    .summary-card .num{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--soft);color:var(--navy);font-weight:900;margin-bottom:14px}
+    .summary-card h3{margin:0 0 6px;font-size:1.05rem}
+    .summary-card p{margin:0;color:var(--muted);font-size:.93rem}
+
+    .format{
+      display:grid;grid-template-columns:1fr 1fr;gap:22px;
+      background:linear-gradient(135deg,#0b2f49,#0f3d5e);color:#fff;border-radius:var(--radius);padding:28px;
+    }
+    .format h2{margin:0 0 10px;font-size:clamp(1.6rem,3vw,2.2rem)}
+    .format p{color:rgba(255,255,255,.76);margin:0}
+    .steps{display:grid;gap:9px}
+    .step{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;padding:11px 13px;border-radius:13px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+    .step strong{color:#ffd774;font-size:.86rem}
+    .step span{font-size:.9rem}
+
+    .role-note{margin-top:16px;padding:20px;border-radius:18px;background:#fff8e8;border:1px solid #efd99f;color:#5c4a1d}
+    .role-note strong{color:#7b5d0b}
+
+    footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:.88rem}
+
+    @media(max-width:760px){
+      .hero{padding:54px 18px 92px}
+      main{padding:0 14px 55px}
+      .objective{grid-template-columns:1fr;padding:20px}
+      .objective-icon{width:50px;height:50px}
+      .tabs-shell{top:6px;padding:6px;margin-top:20px}
+      .tab-btn{padding:11px 8px;font-size:.82rem}
+      .tab-btn small{font-size:.68rem}
+      .day-banner{align-items:flex-start;padding:19px}
+      .date-badge{padding:10px 12px;font-size:.85rem}
+      .agenda-card{grid-template-columns:1fr;gap:7px;padding:16px}
+      .time{display:inline-flex;width:max-content;padding:5px 9px;border-radius:999px;background:var(--soft);font-size:.8rem}
+      .deliverables-grid,.summary-grid,.format{grid-template-columns:1fr}
+      .format{padding:22px}
+      .section{margin-top:32px}
+    }
+
+    @media(max-width:430px){
+      .hero-meta{display:grid;grid-template-columns:1fr 1fr}
+      .hero-meta div:last-child{grid-column:1/-1}
+      .tabs{gap:5px}
+      .tab-btn{font-size:.78rem;padding:10px 5px}
+      .day-banner{display:block}
+      .date-badge{display:inline-block;margin-top:14px;text-align:left}
+      .step{grid-template-columns:1fr;gap:3px}
+    }
+
+    @media print{
+      body{background:#fff}
+      .hero{padding:40px 20px;background:#123d58!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .hero::after,.tabs-shell{display:none}
+      main{margin:0;max-width:none}
+      .day-panel{display:block!important;page-break-before:always}
+      .agenda-card{break-inside:avoid;box-shadow:none}
+      .section{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow"><span></span> LPPSA Leadership Alignment</div>
+      <h1>Management Retreat 2026</h1>
+      <p>A focused three-day working retreat to convert strategic discussions into financially viable roadmaps, measurable targets, clear ownership and post-retreat commitments.</p>
+      <div class="hero-meta">
+        <div>📅 30 July–1 August 2026</div>
+        <div>🧭 3-Day Working Retreat</div>
+        <div>🎯 Roadmap to 2031</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="objective">
+      <div class="objective-icon">◎</div>
+      <div>
+        <small>Core Objective</small>
+        <strong>To exit the Management Retreat with an aligned, financially viable and measurable roadmap for LPPSA.</strong>
+      </div>
+    </section>
+
+    <nav class="tabs-shell" aria-label="Retreat days">
+      <div class="tabs">
+        <button class="tab-btn active" data-day="day1" aria-selected="true">Day 1<small>30 July</small></button>
+        <button class="tab-btn" data-day="day2" aria-selected="false">Day 2<small>31 July</small></button>
+        <button class="tab-btn" data-day="day3" aria-selected="false">Day 3<small>1 August</small></button>
+      </div>
+    </nav>
+
+    <section id="day1" class="day-panel active">
+      <div class="day-banner">
+        <div><div class="day-no">Day One</div><h3>Financial Realities and Strategic Foundations</h3></div>
+        <div class="date-badge">30 July<span>Thursday</span></div>
+      </div>
+      <div class="agenda-list">
+        <article class="agenda-card"><div class="time">8:30–9:00</div><div class="agenda-content"><h4>Arrival and Registration</h4><p>Register, network and prepare for the retreat sessions.</p><div class="output"><strong>Output:</strong> Participants ready for the retreat.</div></div></article>
+        <article class="agenda-card"><div class="time">9:00–9:15</div><div class="agenda-content"><h4>Welcoming Remarks</h4><p>Understand the retreat objectives, working principles and expected deliverables. Engage openly, challenge assumptions constructively and focus on LPPSA’s long-term interests.</p><div class="output"><strong>Output:</strong> Shared understanding of the retreat purpose and rules of engagement.</div></div></article>
+        <article class="agenda-card"><div class="time">9:15–9:30</div><div class="agenda-content"><h4>CEO Remarks</h4><p>Understand leadership expectations and the importance of institutional financial sustainability, maximum value and maximum flexibility.</p><div class="output"><strong>Output:</strong> Clear strategic direction and leadership expectations.</div></div></article>
+        <article class="agenda-card"><div class="time">9:30–11:00</div><div class="agenda-content"><h4>Session 1: Financial Scenario Planning and Baseline Ratios</h4><p>Review financial scenarios, baseline ratios, the spending envelope and SBT limits. Clarify assumptions, identify constraints and determine how they should guide future initiatives.</p><div class="output"><strong>Output:</strong> Agreed financial assumptions, constraints and planning guardrails.</div></div></article>
+        <article class="agenda-card break"><div class="time">11:00–11:15</div><div class="agenda-content"><h4>Morning Break</h4><p>Informal networking and reflection.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">11:15–12:30</div><div class="agenda-content"><h4>2026 Financial Performance YTD, Forecast and 2027 Outlook</h4><p>Review current performance, year-end projections and the 2027 outlook. Identify financial pressures, interventions and investment capacity for strategic initiatives.</p><div class="output"><strong>Output:</strong> Financial boundaries and indicative spending envelope for 2027 onwards.</div></div></article>
+        <article class="agenda-card break"><div class="time">12:30–14:30</div><div class="agenda-content"><h4>Networking Lunch</h4><p>Informal discussion and cross-functional alignment.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">14:30–15:15</div><div class="agenda-content"><h4>Overview of Existing Core Consolidation</h4><p>Review existing strategic plans, initiatives, alignment work and tools presented by CPS. Confirm accuracy, identify duplication and highlight gaps.</p><div class="output"><strong>Output:</strong> Common understanding of existing initiatives, overlaps and gaps.</div></div></article>
+        <article class="agenda-card"><div class="time">15:15–16:15</div><div class="agenda-content"><h4>Session 2: Charting the Path for Islamic Banking</h4><p>Assess the current position and desired future state. Identify strategic gaps, propose initiatives, define milestones and suggest measurable targets.</p><div class="output"><strong>Output:</strong> Draft Islamic Banking Roadmap with initiatives, milestones and targets.</div></div></article>
+        <article class="agenda-card break"><div class="time">16:15–16:30</div><div class="agenda-content"><h4>Tea Break</h4><p>Informal networking and reflection.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">16:30–17:30</div><div class="agenda-content"><h4>Session 3: Governance Stewardship</h4><p>Review the governance environment and desired future state. Identify gaps, required improvements, responsible owners and expected outcomes.</p><div class="output"><strong>Output:</strong> Draft Governance Roadmap with priority actions, ownership and targets.</div></div></article>
+      </div>
+      <div class="deliverables"><h4>End-of-Day 1 Deliverables</h4><div class="deliverables-grid"><div class="deliverable-item"><span class="tick">✓</span>Agreed financial assumptions and guardrails.</div><div class="deliverable-item"><span class="tick">✓</span>Shared view of existing strategic initiatives.</div><div class="deliverable-item"><span class="tick">✓</span>Draft Islamic Banking Roadmap.</div><div class="deliverable-item"><span class="tick">✓</span>Draft Governance Roadmap.</div></div></div>
+    </section>
+
+    <section id="day2" class="day-panel">
+      <div class="day-banner"><div><div class="day-no">Day Two</div><h3>Customer-Centricity, Infrastructure and Human Capital</h3></div><div class="date-badge">31 July<span>Friday</span></div></div>
+      <div class="agenda-list">
+        <article class="agenda-card"><div class="time">8:30–9:00</div><div class="agenda-content"><h4>Arrival</h4><p>Register, network and prepare for Day 2.</p><div class="output"><strong>Output:</strong> Participants ready for Day 2.</div></div></article>
+        <article class="agenda-card"><div class="time">9:00–9:15</div><div class="agenda-content"><h4>Welcoming Remarks and Day 1 Recap</h4><p>Confirm that financial guardrails and strategic foundations will guide the remaining roadmap development.</p><div class="output"><strong>Output:</strong> Reconfirmed strategic context and alignment.</div></div></article>
+        <article class="agenda-card"><div class="time">9:15–10:45</div><div class="agenda-content"><h4>Session 4: Customer Experience Transformation</h4><p>Review service gaps and the desired future state. Define priority customer outcomes, transformation initiatives, milestones and measurable service targets.</p><div class="output"><strong>Output:</strong> Draft Customer Experience Roadmap.</div></div></article>
+        <article class="agenda-card break"><div class="time">10:45–11:00</div><div class="agenda-content"><h4>Morning Break</h4><p>Informal networking and reflection.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">11:00–12:30</div><div class="agenda-content"><h4>Session 5: Cloud Strategy</h4><p>Review technology infrastructure, cloud readiness, security requirements and future architecture. Identify initiatives, dependencies, phases and target outcomes.</p><div class="output"><strong>Output:</strong> Draft Cloud and Technology Roadmap.</div></div></article>
+        <article class="agenda-card break"><div class="time">12:30–14:30</div><div class="agenda-content"><h4>Networking Lunch</h4><p>Informal discussion and cross-functional alignment.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">14:30–15:00</div><div class="agenda-content"><h4>Strategic Reflection and Preparation</h4><p>Review the Customer Experience and Cloud Strategy outputs and identify implications for workforce capability, structure and leadership.</p><div class="output"><strong>Output:</strong> Shared understanding of workforce implications.</div></div></article>
+        <article class="agenda-card"><div class="time">15:00–16:15</div><div class="agenda-content"><h4>Session 6: Strategic Human Capital</h4><p>Identify workforce initiatives, capability gaps, leadership requirements, redeployment needs and measurable workforce targets.</p><div class="output"><strong>Output:</strong> Draft Strategic Human Capital Roadmap.</div></div></article>
+        <article class="agenda-card"><div class="time">16:15–16:45</div><div class="agenda-content"><h4>Day 2 Consolidation</h4><p>Review all roadmaps from Days 1 and 2. Identify duplication, dependencies, conflicting timelines and unresolved issues.</p><div class="output"><strong>Output:</strong> Consolidated list of roadmap gaps, dependencies and alignment issues.</div></div></article>
+      </div>
+      <div class="deliverables"><h4>End-of-Day 2 Deliverables</h4><div class="deliverables-grid"><div class="deliverable-item"><span class="tick">✓</span>Draft Customer Experience Roadmap.</div><div class="deliverable-item"><span class="tick">✓</span>Draft Cloud and Technology Roadmap.</div><div class="deliverable-item"><span class="tick">✓</span>Draft Strategic Human Capital Roadmap.</div><div class="deliverable-item"><span class="tick">✓</span>Consolidated dependencies and overlaps.</div></div></div>
+    </section>
+
+    <section id="day3" class="day-panel">
+      <div class="day-banner"><div><div class="day-no">Day Three</div><h3>Accountability, Ownership and Post-Retreat Commitments</h3></div><div class="date-badge">1 August<span>Saturday</span></div></div>
+      <div class="agenda-list">
+        <article class="agenda-card"><div class="time">8:30–9:00</div><div class="agenda-content"><h4>Arrival</h4><p>Register and prepare for the final consolidation session.</p><div class="output"><strong>Output:</strong> Participants ready for final validation.</div></div></article>
+        <article class="agenda-card"><div class="time">9:00–9:15</div><div class="agenda-content"><h4>Welcoming Remarks and Photography Session</h4><p>Review the final-day objective and the outputs required before the retreat concludes.</p><div class="output"><strong>Output:</strong> Shared focus on completing the enterprise roadmap.</div></div></article>
+        <article class="agenda-card"><div class="time">9:15–10:45</div><div class="agenda-content"><h4>Drafting Future Targets for Each Strategic Pillar</h4><p>Define future targets, baseline data, measurable KPIs, formulas, data owners and outstanding assumptions or data gaps for each strategic pillar.</p><div class="output"><strong>Output:</strong> Draft Strategic Pillar Target Framework with baselines, KPIs, formulas, owners and 2031 targets.</div></div></article>
+        <article class="agenda-card break"><div class="time">10:45–11:00</div><div class="agenda-content"><h4>Morning Break</h4><p>Informal reflection and final alignment.</p><div class="output"></div></div></article>
+        <article class="agenda-card"><div class="time">11:00–11:30</div><div class="agenda-content"><h4>Consolidation of Commitments and CEO Closing Remarks</h4><p>Each Head of Division confirms initiatives, responsibilities and follow-up actions. The CEO provides the final mandate and reinforces inter-divisional accountability.</p><div class="output"><strong>Output:</strong> Confirmed ownership, follow-up actions and post-retreat commitments.</div></div></article>
+      </div>
+      <div class="deliverables"><h4>Final-Day Deliverables</h4><div class="deliverables-grid"><div class="deliverable-item"><span class="tick">✓</span>Strategic Pillar Target Framework.</div><div class="deliverable-item"><span class="tick">✓</span>Confirmed ownership and accountability.</div><div class="deliverable-item"><span class="tick">✓</span>Post-retreat follow-up actions.</div><div class="deliverable-item"><span class="tick">✓</span>CEO mandate for implementation.</div></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><h2>Final Retreat Deliverables</h2><p>What the leadership team should collectively produce.</p></div></div>
+      <div class="summary-grid">
+        <article class="summary-card"><div class="num">01</div><h3>Financial Guardrails</h3><p>Agreed assumptions, constraints and investment boundaries.</p></article>
+        <article class="summary-card"><div class="num">02</div><h3>Strategic Roadmaps</h3><p>Roadmaps for Islamic Banking, Governance, Customer Experience, Cloud Strategy and Strategic Human Capital.</p></article>
+        <article class="summary-card"><div class="num">03</div><h3>Strategic Pillar Targets</h3><p>Future targets, baselines, KPIs and measurement methods.</p></article>
+        <article class="summary-card"><div class="num">04</div><h3>Ownership Structure</h3><p>Lead divisions, supporting divisions and designated data owners.</p></article>
+        <article class="summary-card"><div class="num">05</div><h3>Dependency Map</h3><p>Relationships, prerequisites and cross-divisional dependencies.</p></article>
+        <article class="summary-card"><div class="num">06</div><h3>Follow-Up Actions</h3><p>Items requiring further analysis, validation or refinement.</p></article>
+        <article class="summary-card" style="grid-column:1/-1"><div class="num">07</div><h3>Consolidated Enterprise Roadmap</h3><p>An aligned and financially viable roadmap for further refinement and governance endorsement.</p></article>
+      </div>
+    </section>
+
+    <section class="section format">
+      <div><h2>Recommended Session Format</h2><p>Each strategic session is designed as a working session. Participants do not merely listen; they collectively develop, test and validate the roadmap.</p></div>
+      <div class="steps">
+        <div class="step"><strong>15–20 min</strong><span>Present current situation, evidence and existing proposals.</span></div>
+        <div class="step"><strong>20–30 min</strong><span>Challenge assumptions and identify strategic gaps.</span></div>
+        <div class="step"><strong>20–30 min</strong><span>Complete the roadmap template collectively.</span></div>
+        <div class="step"><strong>10–15 min</strong><span>Validate initiatives, milestones, targets and ownership.</span></div>
+        <div class="step"><strong>5 min</strong><span>CPS summarises agreed outputs and unresolved matters.</span></div>
+      </div>
+    </section>
+
+    <div class="role-note"><strong>Role clarity:</strong> CPS provides the structure, facilitates the discussion, coordinates alignment and consolidates the outputs. Ideas, targets, decisions, ownership, accountability and subsequent execution remain with the respective Heads of Division and Managers.</div>
+  </main>
+
+  <footer>LPPSA Management Retreat 2026 · From discussion to an aligned and measurable 2031 roadmap</footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.day-panel');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.day;
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(panel => panel.classList.remove('active'));
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+        document.getElementById(target).classList.add('active');
+        if (window.innerWidth < 760) {
+          document.querySelector('.tabs-shell').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
