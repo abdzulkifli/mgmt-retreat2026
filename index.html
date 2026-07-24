@@ -32,7 +32,7 @@
     .section{margin-top:110px}.section-head{margin-bottom:24px}.section-head h2{margin:0;font-size:clamp(2.2rem,5vw,4.4rem);line-height:1;letter-spacing:-.055em}.section-head p{margin:10px 0 0;color:var(--muted)}.summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.summary-card{position:relative;padding:24px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 12px 34px rgba(6,26,64,.06);transition:.3s}.summary-card:hover{transform:translateY(-5px);box-shadow:0 22px 52px rgba(6,26,64,.11)}.summary-card .num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:#eaf2ff;color:#14549b;font-weight:900}.summary-card h3{margin:16px 0 6px}.summary-card p{margin:0;color:var(--muted);font-size:.92rem}
     .format{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:34px;border-radius:30px;background:linear-gradient(145deg,#061a40,#123b70);color:#fff;box-shadow:0 26px 70px rgba(6,26,64,.20)}.format h2{margin:0 0 12px;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:-.045em}.format p{margin:0;color:rgba(255,255,255,.68)}.steps{display:grid;gap:9px}.step{display:grid;grid-template-columns:100px 1fr;gap:14px;padding:12px 14px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(255,255,255,.07)}.step strong{color:var(--gold2);font-size:.85rem}.step span{font-size:.9rem}.role-note{margin-top:18px;padding:22px 24px;border:1px solid rgba(212,175,55,.32);border-radius:22px;background:linear-gradient(135deg,#fffaf0,#fff);color:#665322}.role-note strong{color:#87670b}
     footer{position:relative;overflow:hidden;color:#fff;background:#030d21}footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 10%,rgba(31,111,235,.24),transparent 30%),radial-gradient(circle at 85% 95%,rgba(212,175,55,.18),transparent 28%)}.footer-divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}.footer-inner{position:relative;width:min(1160px,calc(100% - 32px));margin:auto;padding:56px 0 38px;display:grid;grid-template-columns:1.4fr .8fr;gap:30px;align-items:end}.footer-brand{display:flex;gap:18px;align-items:center}.footer-mark{width:58px;height:58px;border-radius:19px;display:grid;place-items:center;background:linear-gradient(145deg,var(--gold2),var(--gold));color:var(--navy);font-weight:950}.footer-brand strong{display:block;font-size:1.05rem}.footer-brand span{display:block;margin-top:3px;color:rgba(255,255,255,.55);font-size:.84rem}.footer-quote{margin-top:10px;color:var(--gold2);font-weight:750}.footer-tagline{text-align:right;color:rgba(255,255,255,.55);font-size:.88rem}.footer-tagline b{display:block;color:#fff;font-size:.73rem;letter-spacing:.13em;text-transform:uppercase}.footer-bottom{position:relative;padding:15px;text-align:center;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.38);font-size:.75rem}
-    .back-to-top{position:fixed;right:18px;bottom:18px;z-index:50;width:48px;height:48px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:rgba(255,255,255,.76);backdrop-filter:blur(18px);color:var(--navy);box-shadow:0 16px 40px rgba(6,26,64,.18);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:.25s}.back-to-top.show{opacity:1;visibility:visible;transform:none}.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.is-visible{opacity:1;transform:none}
+    .back-to-top{position:fixed;right:18px;bottom:18px;z-index:50;width:48px;height:48px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:rgba(255,255,255,.76);backdrop-filter:blur(18px);color:var(--navy);box-shadow:0 16px 40px rgba(6,26,64,.18);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:.25s}.back-to-top.show{opacity:1;visibility:visible;transform:none}.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.is-visible{opacity:1;transform:none}.venue-section{opacity:1;transform:none}
     @media(max-width:800px){.hero{min-height:auto;padding:92px 18px 130px}.hero-quote{padding:22px}.objective{grid-template-columns:1fr}.journey-grid{grid-template-columns:1fr 1fr}.day-banner{align-items:flex-start}.agenda-list{padding-left:0}.agenda-list::before,.agenda-card::before{display:none}.agenda-card{grid-template-columns:1fr;gap:8px}.time{display:inline-flex;width:max-content;padding:5px 9px;border-radius:999px;background:#eaf2ff}.deliverables-grid,.summary-grid,.format{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr;text-align:center}.footer-brand{justify-content:center}.footer-tagline{text-align:center}}
     @media(max-width:480px){main{width:min(100% - 22px,1160px)}h1{font-size:clamp(3rem,16vw,4.6rem)}.hero-meta{display:grid;grid-template-columns:1fr 1fr}.hero-meta div:last-child{grid-column:1/-1}.journey-grid{grid-template-columns:1fr}.tabs-shell{top:6px}.tab-btn{padding:10px 5px;font-size:.8rem}.day-banner{display:block}.date-badge{display:inline-block;margin-top:16px}.agenda-card{padding:19px}.deliverables{padding:22px}.step{grid-template-columns:1fr;gap:3px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero::before,.hero::after{animation:none}.reveal,.agenda-card,.journey-card,.summary-card{transition:none}.reveal{opacity:1;transform:none}}
@@ -127,6 +127,29 @@
     }
     @media(prefers-reduced-motion:reduce){.fluid-a,.fluid-b,.hero::before,.hero::after{animation:none!important}}
 
+
+    /* Venue & logistics */
+    .venue-section{margin:30px 0 54px;position:relative;scroll-margin-top:110px}
+    .venue-shell{position:relative;overflow:hidden;padding:34px;border:1px solid rgba(255,255,255,.8);border-radius:54px 20px 54px 20px;background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(235,244,252,.78));backdrop-filter:blur(28px);box-shadow:0 28px 80px rgba(6,26,64,.12)}
+    .venue-shell::before{content:"";position:absolute;width:420px;height:190px;right:-130px;top:-100px;border-radius:58% 42% 62% 38%/48% 60% 40% 52%;background:linear-gradient(120deg,rgba(68,173,198,.16),rgba(212,175,55,.12));transform:rotate(-11deg)}
+    .venue-head{position:relative;z-index:1;display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:24px}
+    .venue-kicker{font-size:.72rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#2670a9}
+    .venue-head h2{margin:8px 0 0;font-size:clamp(2.2rem,5vw,4.4rem);line-height:.95;letter-spacing:-.055em}
+    .venue-head p{max-width:520px;margin:0;color:var(--muted)}
+    .venue-quick{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+    .venue-chip{padding:18px;border:1px solid rgba(7,17,31,.08);border-radius:26px 12px 26px 12px;background:rgba(255,255,255,.82);box-shadow:0 10px 30px rgba(6,26,64,.06)}
+    .venue-chip:nth-child(even){border-radius:12px 26px 12px 26px}.venue-chip span{display:block;font-size:1.35rem;margin-bottom:9px}.venue-chip small{display:block;color:var(--muted);font-weight:700}.venue-chip strong{display:block;margin-top:3px;color:var(--navy);line-height:1.35}
+    .logistics-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .logistics-day{position:relative;overflow:hidden;padding:24px;border:1px solid rgba(7,17,31,.08);border-radius:32px 14px 32px 14px;background:#fff;box-shadow:0 14px 42px rgba(6,26,64,.07);transition:.3s cubic-bezier(.2,.8,.2,1)}
+    .logistics-day:nth-child(even){border-radius:14px 32px 14px 32px}.logistics-day:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(6,26,64,.12)}
+    .logistics-date{display:flex;justify-content:space-between;gap:14px;align-items:center;padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid var(--line)}
+    .logistics-date b{font-size:1.15rem;color:var(--navy)}.logistics-date span{font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#2c72aa}
+    .logistics-list{display:grid;gap:10px}.logistics-item{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:start;padding:10px 11px;border-radius:14px;background:#f7f9fc}
+    .logistics-item i{font-style:normal;width:30px;height:30px;display:grid;place-items:center;border-radius:11px;background:#e8f1fb}.logistics-item strong{display:block;font-size:.88rem}.logistics-item small{display:block;color:var(--muted);line-height:1.45}
+    .venue-note{position:relative;z-index:1;margin-top:18px;padding:15px 17px;border-radius:20px 9px 20px 9px;background:linear-gradient(135deg,#071b37,#0e4b70);color:rgba(255,255,255,.88);font-size:.9rem}.venue-note strong{color:var(--gold2)}
+    @media(max-width:800px){.venue-head{display:block}.venue-head p{margin-top:12px}.venue-quick{grid-template-columns:repeat(2,1fr)}.logistics-grid{grid-template-columns:1fr}.venue-shell{padding:24px;border-radius:38px 14px 38px 14px}}
+    @media(max-width:430px){.venue-quick{grid-template-columns:1fr 1fr;gap:9px}.venue-chip{padding:15px}.venue-chip strong{font-size:.9rem}.venue-shell{padding:20px}.logistics-day{padding:19px}.logistics-date{align-items:flex-start;flex-direction:column}}
+
   </style>
 </head>
 <body>
@@ -157,6 +180,68 @@
   </header>
 
   <main>
+
+    <section id="venue" class="venue-section reveal" aria-labelledby="venue-title">
+      <div class="venue-shell">
+        <div class="venue-head">
+          <div><div class="venue-kicker">Venue & Logistics</div><h2 id="venue-title">Everything in one place.</h2></div>
+          <p>A practical day-by-day guide covering check-in, meeting spaces, room setup, breaks and dining arrangements from 29 July to 1 August 2026.</p>
+        </div>
+
+        <div class="venue-quick" aria-label="Venue highlights">
+          <article class="venue-chip"><span>🏨</span><small>Main Hall</small><strong>Casuarina Hall<br>Level 1</strong></article>
+          <article class="venue-chip"><span>🪑</span><small>Room Setup</small><strong>IUI Shape Setup</strong></article>
+          <article class="venue-chip"><span>☕</span><small>Break Area</small><strong>Foyer Casuarina</strong></article>
+          <article class="venue-chip"><span>🍽️</span><small>Dining</small><strong>Garden Terrace & The Blossom</strong></article>
+        </div>
+
+        <div class="logistics-grid">
+          <article class="logistics-day">
+            <div class="logistics-date"><b>29 July 2026</b><span>Arrival & Pre-Setup</span></div>
+            <div class="logistics-list">
+              <div class="logistics-item"><i>🏨</i><div><strong>Check-in</strong><small>Lobby, Level 1</small></div></div>
+              <div class="logistics-item"><i>🍽️</i><div><strong>Dinner</strong><small>Garden Terrace, Level G</small></div></div>
+              <div class="logistics-item"><i>👥</i><div><strong>Pre-Setup Meeting</strong><small>Casuarina Hall, Level 1 · 9:00 PM–11:00 PM</small></div></div>
+              <div class="logistics-item"><i>🪑</i><div><strong>Setup</strong><small>IUI Shape Setup</small></div></div>
+            </div>
+          </article>
+
+          <article class="logistics-day">
+            <div class="logistics-date"><b>30 July 2026</b><span>Day One</span></div>
+            <div class="logistics-list">
+              <div class="logistics-item"><i>🎤</i><div><strong>Hall</strong><small>Casuarina Hall, Level 1</small></div></div>
+              <div class="logistics-item"><i>☕</i><div><strong>AM / PM Break</strong><small>Foyer Casuarina</small></div></div>
+              <div class="logistics-item"><i>🪑</i><div><strong>Setup</strong><small>IUI Shape Setup</small></div></div>
+              <div class="logistics-item"><i>🥢</i><div><strong>Lunch</strong><small>Chinese Set Lunch at The Blossom Restaurant, Level 1</small></div></div>
+              <div class="logistics-item"><i>🌙</i><div><strong>Dinner</strong><small>Garden Terrace, Level G</small></div></div>
+            </div>
+          </article>
+
+          <article class="logistics-day">
+            <div class="logistics-date"><b>31 July 2026</b><span>Day Two</span></div>
+            <div class="logistics-list">
+              <div class="logistics-item"><i>🎤</i><div><strong>Hall</strong><small>Casuarina Hall, Level 1</small></div></div>
+              <div class="logistics-item"><i>☕</i><div><strong>AM / PM Break</strong><small>Foyer Casuarina</small></div></div>
+              <div class="logistics-item"><i>🪑</i><div><strong>Setup</strong><small>IUI Shape Setup</small></div></div>
+              <div class="logistics-item"><i>🍽️</i><div><strong>Lunch</strong><small>Garden Terrace, Level G</small></div></div>
+              <div class="logistics-item"><i>🔥</i><div><strong>BBQ Dinner</strong><small>Pavelawn – Beach, Level G</small></div></div>
+            </div>
+          </article>
+
+          <article class="logistics-day">
+            <div class="logistics-date"><b>1 August 2026</b><span>Closing Day</span></div>
+            <div class="logistics-list">
+              <div class="logistics-item"><i>🎤</i><div><strong>Hall</strong><small>Casuarina Hall, Level 1</small></div></div>
+              <div class="logistics-item"><i>☕</i><div><strong>AM Break</strong><small>Foyer Casuarina</small></div></div>
+              <div class="logistics-item"><i>🪑</i><div><strong>Setup</strong><small>IUI Shape Setup</small></div></div>
+              <div class="logistics-item"><i>🍽️</i><div><strong>Lunch</strong><small>Garden Terrace, Level G</small></div></div>
+            </div>
+          </article>
+        </div>
+        <div class="venue-note"><strong>Helpful reminder:</strong> Participants should refer to this section for daily room, meal and break arrangements. Any operational changes should be confirmed by the organising team.</div>
+      </div>
+    </section>
+
     <section class="objective">
       <div class="objective-icon">◎</div>
       <div>
@@ -276,7 +361,7 @@
       var topButton = document.querySelector('.back-to-top');
       var dayLinks = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
       var daySections = Array.prototype.slice.call(document.querySelectorAll('.day-panel'));
-      var revealItems = document.querySelectorAll('.objective,.day-banner,.agenda-card,.deliverables,.summary-card,.format,.role-note');
+      var revealItems = document.querySelectorAll('.venue-section,.objective,.day-banner,.agenda-card,.deliverables,.summary-card,.format,.role-note');
 
       revealItems.forEach(function(el){ el.classList.add('reveal'); });
 
